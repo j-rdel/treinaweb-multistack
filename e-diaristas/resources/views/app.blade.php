@@ -44,7 +44,17 @@
       </div>
     </nav>
     <div class="container">
-     @yield('conteudo')
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
+      @yield('conteudo')
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
